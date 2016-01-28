@@ -1,0 +1,29 @@
+var Employee =
+{
+    Fulltime: function (employee)
+    {
+      console.log("we have a new fulltime employee " + employee.name + " " + employee.surname);
+    },
+    Parttime: function (employee)
+    {
+      console.log("we have a new part-time employee " + employee.name + " " + employee.surname);
+    }
+};
+
+function EmployeeFactory(name, surname)
+{
+    this.name = name;
+    this.surname = surname;
+}
+
+EmployeeFactory.prototype =
+{
+    constructor: EmployeeFactory,
+
+    createFulltimeEmployee: function () { return new Employee.Fulltime({ name: this.name, surname: this.surname }); },
+    createParttimeEmployee: function () { return new Employee.Fulltime({ name: this.name, surname: this.surname });},
+
+};
+
+var factory = new EmployeeFactory("Ivan", "Ivanov");
+factory.createFulltimeEmployee();
