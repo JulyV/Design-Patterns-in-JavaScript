@@ -1,0 +1,14 @@
+//html
+
+  <button type="submit" id="button"> Click </button>
+  <div id="message"></div>
+
+// jQuery
+$('#button').on('click', function() {
+    var name = $('#input').val();
+    $('#message').trigger('custom');
+});
+
+$('#message').on('custom', function() {
+    $(this).append( "<p>Thank you!</p>" );
+});
